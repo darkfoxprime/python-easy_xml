@@ -1,0 +1,21 @@
+To make a new release:
+
+Step 0 - TEST!  Make sure the changes are working.
+Step 1 - Make sure all changes are committed to git.
+         It should be safe to do a `git reset --hard`.
+Step 2 - Bump the version number.
+         If this is a testing package, use a prerelease version bump (--alpha, --beta, or --rc).
+         If this is a release package, use the appropriate release version component:
+         * use --patch if this contains only bugfixes with no breaking changes
+         * use --minor if this contains new functionality -or- deprecation warnings, with no breaikng changes
+         * use --major for any breaking changes
+         * use --release if only packaging information was changed, no code content
+         python setup.py bump --<bumptype>
+Step 3 - Commit the version change and tag it:
+         git commit -am 'Bump version to ...'
+         git tag v...
+Step 4 - Push changes, including tags:
+         git push
+         git push --tags
+Step 5 - Push to Pypi
+
